@@ -8,24 +8,33 @@ namespace VectorMathematik_Fertig
 {
     public class Vector
     {
-        // Vektoren
+        #region Vektoren
+
         public float x;
         public float y;
         public float z;
 
-        // Standardkonstruktor
+        #endregion
+
+
+        /// <summary>
+        /// Hier werden die Komponente auf 0 gesetzt.
+        /// </summary>
         public Vector()
         {
-            // Hier werden die Komponente auf 0 gesetzt.
             x = 0;
             y = 0;
             z = 0;
         }
 
-        // Einen Konstruktor mit Parametern initialisiert (Mathe is immernoch doof)
+        /// <summary>
+        /// Einen Konstruktor mit Parametern initialisiert
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <param name="z"></param>
         public Vector(float x, float y, float z)
         {
-            // Hier werden die Werte in die Komponente übergeben
             this.x = x; // this.x (Bezieht sich auf das x Attribut)
             this.y = y; // Siehe Zeile 29 (nur auf y bezogen)
             this.z = z; // Siehe Zeile 29 (nur auf z bezogen)
@@ -55,7 +64,11 @@ namespace VectorMathematik_Fertig
             return new Vector(v1.x / v2.x, v1.y / v2.y, v1.z / v2.z); // teilt jede Komponente des ersten Vektors durch den zweiten Vektor
         }
 
-        // Methode für die Distanz zwischen zwei Vektoren und der float rückgabe
+        /// <summary>
+        /// Methode für die Distanz zwischen zwei Vektoren und der float rückgabe
+        /// </summary>
+        /// <param name="other"></param>
+        /// <returns></returns>
         public float Distance(Vector other)
         {
             float dx = other.x - x; // die Differenz von X Komponenten der Vektoren
@@ -64,7 +77,12 @@ namespace VectorMathematik_Fertig
             return (float)Math.Sqrt(dx * dx + dy * dy + dz * dz); // Berechnung der Distanz zwischen den Vektoren
         }
 
-        // Implementierung in eine statische Distanz
+        /// <summary>
+        /// Implementierung in eine statische Distanz
+        /// </summary>
+        /// <param name="v1"></param>
+        /// <param name="v2"></param>
+        /// <returns></returns>
         public static float StaticDistance(Vector v1, Vector v2)
         {
             float dx = v2.x - v1.x; // die Differenz von X Komponenten der Vektoren
@@ -73,13 +91,19 @@ namespace VectorMathematik_Fertig
             return (float)Math.Sqrt(dx * dx + dy * dy + dz * dz); // Berechnung der Distanz zwischen den Vektoren
         }
 
-        // Methode für die Länge eines Vektors und float ausgabe
+        /// <summary>
+        /// Methode für die Länge eines Vektors und float ausgabe
+        /// </summary>
+        /// <returns></returns>
         public float Magnitude()
         {
             return (float)Math.Sqrt(x * x + y * y + z * z); // Berechnung der Länge vom Vektors
         }
 
-        // Methode der Quadratlänge eines Vektors und auch hier die float ausgibt
+        /// <summary>
+        /// Methode der Quadratlänge eines Vektors und auch hier die float ausgibt
+        /// </summary>
+        /// <returns></returns>
         public float SquaredMagnitude()
         {
             return x * x + y * y + z * z; // Berechnung von Quadratlänge des Vektors
